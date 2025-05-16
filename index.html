@@ -38,30 +38,31 @@
         header {
             background: linear-gradient(135deg, var(--secondary), var(--primary));
             color: white;
-            padding: 2rem 0;
+            padding: 3rem 0;
+            text-align: center;
             position: relative;
+        }
+        
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .profile-img-container {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid var(--light);
             overflow: hidden;
-        }
-        
-        .header-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-        
-        .profile {
-            display: flex;
-            align-items: center;
-            gap: 20px;
+            margin-bottom: 1.5rem;
         }
         
         .profile-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 4px solid var(--light);
+            width: 100%;
+            height: 100%;
             object-fit: cover;
+            object-position: center;
         }
         
         .profile-text h1 {
@@ -70,22 +71,44 @@
         }
         
         .profile-text p {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             opacity: 0.9;
+            margin-bottom: 1.5rem;
         }
         
         .contact-info {
             background-color: rgba(255, 255, 255, 0.1);
             padding: 15px;
             border-radius: 8px;
-            margin-top: 15px;
+            margin: 1rem auto;
+            max-width: 400px;
         }
         
         .contact-info p {
             margin: 5px 0;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
+        }
+        
+        /* Social Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
         }
         
         /* Navigation */
@@ -100,6 +123,7 @@
             display: flex;
             list-style: none;
             justify-content: center;
+            flex-wrap: wrap;
         }
         
         nav ul li a {
@@ -153,26 +177,18 @@
             position: relative;
             overflow: hidden;
             transition: transform 0.3s ease;
+            border-left: 4px solid var(--primary);
         }
         
         .experience-item:hover {
             transform: translateY(-5px);
         }
         
-        .experience-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background-color: var(--primary);
-        }
-        
         .job-header {
             display: flex;
             justify-content: space-between;
             margin-bottom: 1rem;
+            flex-wrap: wrap;
         }
         
         .job-title {
@@ -189,6 +205,7 @@
             font-style: italic;
             color: var(--dark);
             margin-bottom: 1rem;
+            width: 100%;
         }
         
         .job-description ul {
@@ -244,6 +261,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
         }
         
         .education-degree {
@@ -262,6 +280,62 @@
         
         .education-grade {
             font-style: italic;
+        }
+        
+        /* Certifications Section */
+        .certifications-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        
+        .certificate-item {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .certificate-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .certificate-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 1rem;
+        }
+        
+        .certificate-header i {
+            color: var(--accent);
+            font-size: 1.8rem;
+        }
+        
+        .certificate-header h3 {
+            color: var(--secondary);
+        }
+        
+        .certificate-issuer {
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+        
+        .btn-view {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        
+        .btn-view:hover {
+            background: var(--secondary);
         }
         
         /* Awards Section */
@@ -299,23 +373,6 @@
             padding: 2rem 0;
         }
         
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 1rem 0;
-        }
-        
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            color: var(--primary);
-        }
-        
         /* Responsive Design */
         @media (max-width: 768px) {
             .header-content {
@@ -345,25 +402,36 @@
                 text-align: center;
                 margin-top: 1rem;
             }
+            
+            .profile-img-container {
+                width: 150px;
+                height: 150px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <div class="header-content">
-                <div class="profile">
-                    <!-- Replace with your actual image -->
-                  <img src="images/satya.jpeg" alt="Satya Ranjan Panigrahi">
-
-                    <div class="profile-text">
-                        <h1>Satya Ranjan Panigrahi</h1>
-                        <p>Data Analyst | Python Developer | Machine Learning Enthusiast</p>
-                        <div class="contact-info">
-                            <p><i class="fas fa-map-marker-alt"></i> SF/576, CDA-9, Cuttack, Odisha</p>
-                            <p><i class="fas fa-phone"></i> +91-7978900914</p>
-                            <p><i class="fas fa-envelope"></i> spanigrahi560@gmail.com</p>
-                        </div>
+            <div class="profile-container">
+                <div class="profile-img-container">
+                    <img src="images/satya.jpeg" alt="Satya Ranjan Panigrahi" class="profile-img">
+                </div>
+                <div class="profile-text">
+                    <h1>Satya Ranjan Panigrahi</h1>
+                    <p>Data Analyst | Python Developer | Machine Learning Enthusiast</p>
+                    
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> SF/576, CDA-9, Cuttack, Odisha</p>
+                        <p><i class="fas fa-phone"></i> +91-7978900914</p>
+                        <p><i class="fas fa-envelope"></i> spanigrahi560@gmail.com</p>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/your-profile" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/your-username" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://twitter.com/your-handle" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="mailto:spanigrahi560@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
             </div>
@@ -550,35 +618,42 @@
                 </div>
             </div>
         </section>
+        
         <section id="certifications">
-    <div class="section-title">
-        <h2>Certifications</h2>
-    </div>
-    
-    <div class="certifications-container">
-        <!-- Certificate 1 -->
-        <div class="certificate-item">
-            <div class="certificate-header">
-                <i class="fas fa-certificate"></i>
-                <h3> Master Of Data Science</h3>
+            <div class="section-title">
+                <h2>Certifications</h2>
             </div>
-            <p class="certificate-issuer">Issued by: PW SKILLS (2024)</p>
-            <a href="https://drive.google.com/file/d/1L_6p0mJk3evm7d0nlRvDxAu3jbg1pOO0/view?usp=drive_link" target="_blank" class="btn-view">View Certificate</a>
-        </div>
-        
-        <!-- Certificate 2 -->
-        <div class="certificate-item">
-            <div class="certificate-header">
-                <i class="fas fa-certificate"></i>
-                <h3>Investor Certification By SEBI</h3>
+            
+            <div class="certifications-container">
+                <div class="certificate-item">
+                    <div class="certificate-header">
+                        <i class="fas fa-certificate"></i>
+                        <h3>Python for Data Science</h3>
+                    </div>
+                    <p class="certificate-issuer">Issued by: Coursera (2023)</p>
+                    <a href="#" target="_blank" class="btn-view">View Certificate</a>
+                </div>
+                
+                <div class="certificate-item">
+                    <div class="certificate-header">
+                        <i class="fas fa-certificate"></i>
+                        <h3>Machine Learning Specialist</h3>
+                    </div>
+                    <p class="certificate-issuer">Issued by: PW Skills (2022)</p>
+                    <a href="#" target="_blank" class="btn-view">View Certificate</a>
+                </div>
+                
+                <div class="certificate-item">
+                    <div class="certificate-header">
+                        <i class="fas fa-certificate"></i>
+                        <h3>AWS Certified Cloud Practitioner</h3>
+                    </div>
+                    <p class="certificate-issuer">Issued by: Amazon Web Services (2021)</p>
+                    <a href="#" target="_blank" class="btn-view">Verify Credential</a>
+                </div>
             </div>
-            <p class="certificate-issuer">Issued by: SEBI(security Exchange Board Of India) (2025)</p>
-            <a href="https://drive.google.com/file/d/1OK45o3UAhAWGATWQbO__6yHuPDtjFg9D/view?usp=drive_link" target="_blank" class="btn-view">View Certificate</a>
-        </div>
+        </section>
         
-        <!-- Add more certificates as needed -->
-    </div>
-</section>
         <section id="awards" class="awards-section">
             <div class="section-title">
                 <h2>Awards & Achievements</h2>
@@ -595,9 +670,9 @@
         <div class="container">
             <h3>Connect With Me</h3>
             <div class="social-links">
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com/in/your-profile" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/your-username" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://twitter.com/your-handle" target="_blank"><i class="fab fa-twitter"></i></a>
                 <a href="mailto:spanigrahi560@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
             <p>&copy; 2023 Satya Ranjan Panigrahi. All rights reserved.</p>
